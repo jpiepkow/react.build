@@ -12,7 +12,7 @@ const task = {
   },
   'build': () => {
     task['build:clean']()
-    shell.exec(`babel ${realPath} --plugins transform-react-jsx --presets es2015 --out-dir lib`)
+    shell.exec(`babel ${realPath} --plugins ${path.join(__dirname,'node_modules/babel-plugin-transform-react-jsx')} --presets ${path.join(__dirname,'node_modules/babel-preset-es2015')} --out-dir lib --copy-files`)
   },
 }
 task.build()
